@@ -1,0 +1,8 @@
+# DevEmail
+```{eval-rst}
+.. autoclass:: tkdev4.DevEmail
+    :members:
+    :noindex:
+
+```
+

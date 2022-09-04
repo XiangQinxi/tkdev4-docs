@@ -1,0 +1,11 @@
+# DevAction
+用于存储一些组件数据，对于重复作用的组件有很大的作用。
+
+
+```{eval-rst}
+.. autoclass:: tkdev4.devcore.DevAction
+    :members:
+    :noindex:
+
+```
+

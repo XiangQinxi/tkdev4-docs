@@ -1,0 +1,10 @@
+# Icon_Hourglass
+系统内置的沙漏图标
+```{eval-rst}
+.. autoclass:: tkdev4.devicon.Icon_Hourglass
+    :members:
+    :noindex:
+
+```
+
+

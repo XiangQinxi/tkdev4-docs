@@ -1,0 +1,12 @@
+# winico load 
+
+:::{card} 参数
+`resourcename` 、 `filename`
+:::
+
+从可执行文件的资源部分加载图标（`.exe`或`.dll`）。仅加载当前彩色深部的图标（与 [createfrom](https://tkdev-docs.netlify.app/api/winico/officialdocs/createfrom.html#winico-createfrom) 子命令不同）。
+`resourcename` 可以是字符串标识符或数字，用于标识资源文件中的项。
+如果没有给出文件名，则可以加载一些标准窗口图标（为`LoadIcon Win32 API`函数定义）。
+以下名称是可识别的：`application`, `asterisk`, `error`, `exclamation`, `hand`, `question`, `information`, `warning`,和 `winlogo`.
+
+

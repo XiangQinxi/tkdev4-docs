@@ -1,0 +1,14 @@
+# DevPlyer
+使用plyer库开发的工具
+
+```{eval-rst}
+.. toctree::
+   :maxdepth: 1
+   
+   auto_install_plyer
+   set_auto_install_plyer
+   DevEmail
+   DevNotification
+```
+
+

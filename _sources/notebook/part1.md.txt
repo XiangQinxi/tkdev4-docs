@@ -1,0 +1,30 @@
+# 第一步 准备工作
+如果要学习教程的话，就请先安装好[Python](https://www.python.org)的解释器，将Python解释器主目录和Scripts目录加入环境变量。
+我们先开始创建一个项目，找到一个位置开启新的项目。点击`文件夹`，选择`在终端打开`在终端输入以下代码，这样就创建好了环境
+```bash
+mkdir notebook_example
+cd notebook_example
+python -m venv venv
+```
+相同目录，之后进入虚拟环境。
+```bash
+venv/Scripts/activate
+```
+我们开始安装需要的库，在虚拟环境中输入一下代码直接安装
+```bash
+pip install tkinterDev
+```
+之后我们使用`一键开始`安装依赖库
+```bash
+python
+```
+在Python中输入以下代码，如果安装失败，按照[可选安装](https://tkdev-docs.netlify.app/quickstart.html#id3)的步骤进行安装。
+```python
+from tkdev import Install_ALL
+Install_ALL()
+```
+安装完毕后，在Python中输入`exit()`退出
+```python
+exit()
+```
+

@@ -1,0 +1,7 @@
+# DevObject
+```{eval-rst}
+.. autoclass:: tkdev4.DevObject
+    :members:
+    :noindex:
+
+```

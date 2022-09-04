@@ -1,0 +1,75 @@
+# 使用教程
+如果你已经看完了前面几篇文档，那么接下来就可以来进入正式教程了
+
+---
+
+```{eval-rst}
+.. toctree::
+   :maxdepth: 1
+   :hidden:
+   
+   tooltip
+   statusbar 
+   titlebar
+   custom_window
+   winico
+   mdi
+   mica
+   acrylic
+   window_move
+```
+
+:::{card} 工具提示
+:link: https://tkdev-docs.netlify.app/course/tooltip.html
+
+如何使用工具提示。
+:::
+
+:::{card} 状态栏
+:link: https://tkdev-docs.netlify.app/course/statusbar.html
+
+如何制作和使用状态栏。
+:::
+
+:::{card} 标题栏
+:link: https://tkdev-docs.netlify.app/course/winico.html
+
+如何自定义标题栏。
+:::
+
+
+:::{card} 自定义窗口
+:link: https://tkdev-docs.netlify.app/course/custom_window.html
+
+如何自定义窗口。
+:::
+
+:::{card} 托盘图标
+:link: https://tkdev-docs.netlify.app/course/winico.html
+
+如何制作托盘图标。
+:::
+
+:::{card} 嵌套子窗口
+:link: https://tkdev-docs.netlify.app/course/mdi.html
+
+将窗口嵌入另一个窗口。
+:::
+
+:::{card} 云母特效
+:link: https://tkdev-docs.netlify.app/course/mica.html
+
+如何设置窗口背景材质为云母特效。
+:::
+
+:::{card} 亚克力特效
+:link: https://tkdev-docs.netlify.app/course/acrylichtml
+
+如何设置窗口背景材质为亚克力特效。
+:::
+
+:::{card} 拖动窗口
+:link: https://tkdev-docs.netlify.app/course/window_move.html
+
+如何在自定义标题栏时拖动标题栏可以贴靠窗口
+:::

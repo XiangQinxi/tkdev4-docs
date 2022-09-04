@@ -1,0 +1,10 @@
+# DevTray
+
+```{eval-rst}
+.. autoclass:: tkdev4.DevTray
+    :members:
+    :noindex:
+    
+```
+
+

@@ -1,0 +1,25 @@
+# 基础知识
+这个文档是专门讲解tkinter扩展库的，我准备在这讲解tkinter如何使用，因为网上的文档太乱了。我发在这，供大家学习。
+
+```{eval-rst}
+.. toctree::
+   :maxdepth: 2
+   :hidden:
+   
+   Tkinter
+   Tk
+```
+
+:::{card} 简介
+:link: https://tkdev-docs.netlify.app/basic/Tk.html
+
+对于tkinter库的简介。
+
+:::
+
+:::{card} 窗口
+:link: https://tkdev-docs.netlify.app/basic/Tkinter.html
+
+使用tkinter的窗口。
+
+:::

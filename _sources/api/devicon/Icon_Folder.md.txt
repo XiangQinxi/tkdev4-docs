@@ -1,0 +1,10 @@
+# Icon_Folder
+系统的文件夹图标。
+```{eval-rst}
+.. autoclass:: tkdev4.devicon.Icon_Folder
+    :members:
+    :noindex:
+
+```
+
+

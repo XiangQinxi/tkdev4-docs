@@ -1,0 +1,50 @@
+# 如何制作状态栏
+[状态栏](https://tkdev-docs.netlify.app/api/dev/devstatusbar#devstatusbar)一般位于窗口的最下方，用于显示信息，进度，有些会在状态栏右方添加调整大小的手柄。
+我们可以使用`tkinter.Label`做成状态栏的状态，并在状态右边加上`tkinter.ttk.Sizegrip`。
+
+---
+## 使用DevStatusBar
+我们在`tkinterDev`里开发了状态栏，可以使用`DevStatusBar`搭配`DevWindow`快速创造状态栏。
+首先我们来导入并创建好窗口与状态栏。
+```python
+from tkdev4 import DevWindow, DevStatusBar
+
+Root = DevWindow()
+Statusbar = DevStatusBar(Root)
+Root.mainloop()
+```
+然后使用`DevWindow.statusbar()`设置状态栏。
+```python
+from tkdev4 import DevWindow, DevStatusBar
+
+Root = DevWindow()
+Statusbar = DevStatusBar(Root)
+Root.statusbar(Statusbar)
+Root.mainloop()
+```
+这样一个最简单的状态栏就创建好了。
+
+## 使用tkinter.Label
+我们可以使用`tkinter.Label`创建文本。
+```python
+from tkinter import Tk, Label
+
+Root = Tk()
+StatusBar = Label(Root)
+StatusBar.pack(fill="x", side="bottom")
+Root.mainloop()
+```
+
+## 扩展
+我们可以设置`DevStatusbar`的默认文本，只要在初始化时，加上`default_text`的参数就行，里面填入默认的文本
+```python
+from tkdev4 import DevWindow, DevStatusBar
+
+Root = DevWindow()
+Statusbar = DevStatusBar(Root, default_text=" 状态栏 | ")
+Root.statusbar(Statusbar)
+Root.mainloop()
+```
+
+
+

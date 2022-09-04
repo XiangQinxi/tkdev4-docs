@@ -1,0 +1,24 @@
+# Winico 安装
+你可以使用`tkdev.download_winico()`方法快速安装，但是，如果你的网速不好的话，可以使用我存在网站里的文件。
+下载所需要的版本，然后解压出里面的文件，将里面的`pkg`和`src`文件夹放到你Python解释器目录下的`tcl`文件夹内。
+也就是 `python\tcl\` 文件夹内
+之后你就可以使用Winico了
+
+:::{card}
+:link: https://tkdev-docs.netlify.app/_files/Winico64.zip
+
+安装Winico的64位版本
+:::
+
+:::{card}
+:link: https://tkdev-docs.netlify.app/_files/Winico32.zip
+
+安装Winico的32位版本
+:::
+
+---
+
+```{hint} 注意
+从3.1.1版本开始，就可以检测系统是不是64位，并按照对应的版本进行安装。
+```
+

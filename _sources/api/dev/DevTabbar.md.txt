@@ -1,0 +1,7 @@
+# DevTabbar
+```{eval-rst}
+.. autoclass:: tkdev4.DevTabbar
+    :members:
+    :noindex:
+
+```

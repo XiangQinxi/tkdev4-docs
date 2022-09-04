@@ -1,0 +1,12 @@
+# DevSysTray
+用于制作系统托盘图标，不建议使用，建议改为WinIco的DevTray。因为他不能与Tk窗口一起使用，需要异步运行才行。
+
+需要安装pystray库才能使用。
+
+
+```{eval-rst}
+.. autoclass:: tkdev4.devcore.DevSysTray
+    :members:
+    :noindex:
+
+```

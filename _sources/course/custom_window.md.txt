@@ -1,0 +1,47 @@
+# 如何自定义窗口
+对于自定义窗口，大家可能都不陌生，自定义标题栏，自定义边框等。我们需要知道可以win32去除标题栏，
+`WS_CAPTION`可以设置窗口是否有标题栏，而如果直接这样使用是不行的，实际上隐藏后，窗口没有刷新，会导致出现一些显示错误，
+所以使用`SetWindowPos`设置标题栏位置，并使用`UpdateWindow`刷新即可。
+我们需要先获取[窗柄](https://tkdev-docs.netlify.app/course/window_move.html#hwnd)
+
+---
+
+```python
+from win32gui import GetParent, SetWindowLong, GetWindowLong, SetWindowPos, UpdateWindow
+from win32con import GWL_STYLE, WS_CAPTION, NULL, SWP_NOSIZE, SWP_NOMOVE, SWP_NOZORDER, SWP_DRAWFRAME
+from tkinter import Tk
+
+hWnd = 0
+
+def Get_hWnd():
+    global hWnd
+    hWnd = GetParent(Root.winfo_id())
+    SetWindowLong(hWnd, GWL_STYLE, GetWindowLong(hWnd, GWL_STYLE) & ~WS_CAPTION)
+    SetWindowPos(hWnd, NULL, 0, 0, 0, 0, SWP_NOSIZE | SWP_NOMOVE | SWP_NOZORDER | SWP_DRAWFRAME)
+    UpdateWindow(hWnd)
+
+    
+Root = Tk()
+Root.after(1, Get_hWnd)
+Root.mainloop()
+```
+这样我们就得到了一个无标题栏的窗口，可这还不过，我们需要创建标题栏，
+可以参见关于[自定义标题栏](https://tkdev-docs.netlify.app/course/titlebar.html#id1)的这篇文章，创造标题栏。
+
+## 扩展
+我还是在写一些制作标题栏的吧，我们使用DevWindow和DevHeaderBar一起使用创建完美的自定义标题栏。
+```python
+from tkdev4 import DevHeaderBar, DevWindow
+    
+Root = DevWindow()
+TitleBar = DevHeaderBar(Root)
+TitleBar.add_close_button()
+TitleBar.add_maximize_button()
+TitleBar.add_minimize_button()
+Root.titlebar(TitleBar)
+Root.mainloop()
+```
+
+
+
+

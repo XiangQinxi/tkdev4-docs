@@ -1,0 +1,11 @@
+# Icon_TkinterDev
+为tkinterDev应用的图标
+```{eval-rst}
+.. autoclass:: tkdev4.devicon.Icon_TkinterDev
+    :members:
+    :noindex:
+
+```
+
+
+

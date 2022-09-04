@@ -1,0 +1,11 @@
+# DevAppBar
+```{eval-rst}
+.. autoclass:: tkdev4.DevAppBar
+    :members:
+    :noindex:
+
+```
+
+
+
+

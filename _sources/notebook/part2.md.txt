@@ -1,0 +1,5 @@
+# 第二步 选择编辑器
+编程不能没有编辑器，这里推荐 [Jetbrains](https://www.jetbrains.com.cn) 的[Pycharm](https://www.jetbrains.com.cn/pycharm/)
+还有[Microsoft](https://www.microsoft.com/zh-cn/)的[Visual Code](https://www.jetbrains.com.cn/pycharm/)。
+安装好编辑器就可以正式开始编程了。
+

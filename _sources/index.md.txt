@@ -1,0 +1,75 @@
+# 欢迎来到tkinterDev的文档教程
+一个十分好用的`tkinter`的扩展库，对`tkinter`开发提供了很大的帮助。
+但是支持的最好的是`Windows`系统，对于其他系统没有做任何的支持，因为作者只有一台`Windows`系统的电脑，无法使用`macOS`与`Linux`进行开发。也不知道其他系统能不能正常使用。所以注意使用规范，不要抄袭。
+
+---
+
+```{eval-rst}
+.. toctree::
+   :hidden:
+   :maxdepth: 2
+   :caption: 教程
+    
+   quickstart
+   instructionsforuse
+   basic/index.md
+   course/index
+   api/index
+```
+
+```{eval-rst}
+.. toctree::
+   :hidden:
+   :maxdepth: 1
+   :caption: 示例
+   
+   notebook/index
+```
+
+```{eval-rst}
+.. toctree::
+   :hidden:
+   :maxdepth: 1
+   :caption: 其他
+   
+   updatelog
+```
+
+```{eval-rst}
+.. toctree::
+   :hidden:
+   :maxdepth: 2
+   
+   _files/index
+   about/index
+```
+
+:::{card} 开始🐳
+:link: https://tkdev-docs.netlify.app/quickstart.html
+
+快速开始开发，安装依赖库和tkinterDev。
+:::
+
+:::{card} 说明📃
+:link: https://tkdev-docs.netlify.app/instructionsforuse.html
+
+必要的说明提示，不然项目开发可能会出错
+:::
+
+:::{card} 教程📕
+:link: https://tkdev-docs.netlify.app/course/index.html
+
+正式开始教程，讲解一下扩展知识
+:::
+
+:::{card} 接口🎰
+:link: https://tkdev-docs.netlify.app/api/index.html
+
+组件的使用方法于参数
+:::
+
+```{eval-rst}
+.. todo::
+    Demo
+```
+

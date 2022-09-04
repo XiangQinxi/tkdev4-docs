@@ -1,0 +1,51 @@
+# 应用接口
+如果你想了解组件的一些方法，那么请查看下面这些稳定。
+
+```{eval-rst}
+.. toctree::
+   :maxdepth: 1
+   :hidden:
+   
+   dev/index
+   devcore/index
+   devicon/index
+   devpre/index
+   devplyer/index
+   devtcl/index
+```
+
+:::{card} Dev
+:link: https://tkdev-docs.netlify.app/api/dev/index.html
+
+主要的组件库。
+:::
+
+:::{card} DevCore
+:link: https://tkdev-docs.netlify.app/api/devcore/index.html
+
+次要的功能库。
+:::
+
+:::{card} DevIcon
+:link: https://tkdev-docs.netlify.app/api/devicon/index.html
+
+提供更多的图标。
+:::
+
+:::{card} DevPlyer
+:link: https://tkdev-docs.netlify.app/api/devplyer/index.html
+
+功能组件库。
+:::
+
+:::{card} DevPre
+:link: https://tkdev-docs.netlify.app/api/devpre/index.html
+
+正在开发的功能组件。
+:::
+
+:::{card} DevTcl
+:link: https://tkdev-docs.netlify.app/api/devtcl/winico/index.html
+
+使用tcl扩展库开发
+:::

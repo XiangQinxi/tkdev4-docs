@@ -1,0 +1,9 @@
+# DevNotification
+```{eval-rst}
+.. autoclass:: tkdev4.DevNotification
+    :members:
+    :noindex:
+
+```
+
+

@@ -1,0 +1,99 @@
+# 如何为窗口设置云母特效
+云母特效（Mica）是Windows11系统中一个新的背景材质，使用模糊背景来达到十分优美的界面。而这篇文章也仅限Windows11才能使用。
+如果是Windows10、macOS、Linux之类的就还别看了。
+
+![](https://tkdev-docs.netlify.app/_files/mica-light.png)
+
+---
+
+## 安装所需要的库
+首先，我们需要安装一个库，是我在网上查阅教程时看到的，在[PyPi](https://pypi.org/project/win32mica/)中可以找到。使用win32代码开发，原理就是获取窗柄，并设置窗口的材质。
+我在快速开始里讲解过[win32mica库](https://tkdev-docs.netlify.app/quickstart.html#id2)的安装，没看过的可以去看一下，但如果懒得看就直接在终端输入一下代码进行安装。
+```bash
+python -m pip install win32mica
+```
+
+## 使用DevWindow
+这是最简单的办法，你只需要使用`DevWindow.mica()`即可，他就会自动设置匹配的颜色。
+```python
+from tkdev4 import DevWindow
+
+Root = DevWindow()
+Root.mica()
+Root.mainloop()
+```
+
+
+## win32mica使用
+我虽然有发过[win32mica](https://blog.csdn.net/bangbang_BON/article/details/126019316)的教程在CSDN，但是有些漏了，还是在说一下吧。
+首先就是导入win32mica，直接导入就行了。ApplyMica是应用云母材质在窗口，MICAMODE是设置云母的主题，有LIGHT和DARK两种主题，代表浅色和深色。
+```python
+from win32mica import ApplyMica, MICAMODE
+```
+我们需要获取到[hWnd](https://tkdev-docs.netlify.app/course/window_move.html#hwnd)，然后使用ApplyMica设置云母材质。
+我就直接复制之前的代码，懒得在重写一遍了
+
+### 浅色模式
+```python
+from win32mica import ApplyMica, MICAMODE
+from win32gui import GetParent
+from tkinter import Tk
+
+hWnd = 0
+
+def Get_hWnd():
+    global hWnd
+    hWnd = GetParent(Root.winfo_id())
+    ApplyMica(hWnd, MICAMODE.LIGHT)
+    
+Root = Tk()
+Root.after(1, Get_hWnd)
+Root.mainloop()
+```
+### 深色模式
+```python
+from win32mica import ApplyMica, MICAMODE
+from win32gui import GetParent
+from tkinter import Tk
+
+hWnd = 0
+
+def Get_hWnd():
+    global hWnd
+    hWnd = GetParent(Root.winfo_id())
+    ApplyMica(hWnd, MICAMODE.DARK)
+    
+Root = Tk()
+Root.after(1, Get_hWnd)
+Root.mainloop()
+```
+## 扩展
+虽然做好了Mica材质窗口，但还不够，我们需要根据主题修改背景颜色。这里我测试出来与标题栏相互匹配的主题还只有深色模式，浅色模式匹配的还没找到。
+
+:::{card} 深色
+#000000
+:::
+
+:::{card} 浅色
+暂无
+:::
+
+### 深色模式
+```python
+from win32mica import ApplyMica, MICAMODE
+from win32gui import GetParent
+from tkinter import Tk
+
+hWnd = 0
+
+def Get_hWnd():
+    global hWnd
+    hWnd = GetParent(Root.winfo_id())
+    ApplyMica(hWnd, MICAMODE.DARK)
+    
+Root = Tk()
+Root.configure(background="#000000")
+Root.after(1, Get_hWnd)
+Root.mainloop()
+```
+

@@ -1,0 +1,22 @@
+# 如何为窗口设置亚克力特效
+亚克力特效（acrylic）是Windows10中新增的一种背景材质，模糊背景，达到半透明的效果。
+
+![](https://tkdev-docs.netlify.app/_files/acrylic.png)
+
+---
+## 安装所需要的库
+我在PyPI中找东西时找到了一个叫做[BlurWindow](https://pypi.org/project/BlurWindow/)的库，用于使窗口改变背景材质为亚克力。
+直接使用PyPI安装就行
+```bash
+python -m pip install BlurWindow
+```
+
+## BlurWindow使用
+首先导入库
+```python
+from BlurWindow import blurWindow
+```
+blurWindow中有个叫做`GlobalBlur`最好，支持跨平台自动选择。
+
+
+

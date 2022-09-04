@@ -1,0 +1,7 @@
+# DevWindow
+```{eval-rst}
+.. autoclass:: tkdev4.DevWindow
+    :members:
+    :noindex:
+
+```

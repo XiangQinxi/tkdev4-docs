@@ -1,0 +1,10 @@
+# Icon_Info
+系统内置的信息图标
+```{eval-rst}
+.. autoclass:: tkdev4.devicon.Icon_Info
+    :members:
+    :noindex:
+
+```
+
+

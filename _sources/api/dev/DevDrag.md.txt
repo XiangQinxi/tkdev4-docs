@@ -1,0 +1,11 @@
+# DevDrag
+```{eval-rst}
+.. autoclass:: tkdev4.DevDrag
+    :members:
+    :noindex:
+
+```
+
+
+
+

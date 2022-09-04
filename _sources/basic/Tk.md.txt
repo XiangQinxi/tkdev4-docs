@@ -1,0 +1,59 @@
+# 窗口
+窗口是我们见到的一个个图形化应用。他们都是有窗口所组成的，而我们最先就要从窗口讲起，学了窗口才能了解其他的。
+他的类名就叫做`Tk`，所在`tkinter.Tk`里面。我们通过`from tkinter import Tk`导入，然后定义窗口。
+最后使`mainloop()`运行就可以了
+
+```python
+from tkinter import Tk
+
+Window = Tk()
+Window.mainloop() # 消息循环运行窗口
+```
+
+## 设置标题
+我们如果需要设置标题的话，使用`title()`设置
+```python
+Window.title("标题")
+```
+获取标题也是一样的方法
+```python
+print(Window.title)
+```
+如果你获取到的是一串不是标题的字，就代表这你还没有定义窗口，现在返回的是他自动生成的标题。
+
+## 设置大小
+我们有时候要调整窗口大小，需要使用`geometry()`来设置，格式是`宽度x高度`，记得中间不是`*`，是小写的`x`。
+```python
+Window.geometry("600x500")
+```
+
+## 设置位置
+我们如果想要调整窗口为也是需要使用`geometry()`来设置，但格式不要一样了，他是`+X坐标+Y坐标`
+```python
+Window.geometry("+0+0")
+```
+
+## 锁定大小
+如果我们不想让用户调整窗口的大小，可以使用`resizable()`进行锁定，第一个参数是锁定宽度，第二个参数是锁定高度。
+```python
+Window.resizable(False, False)
+```
+
+## 最小化
+我们如果想要最小话窗口，可以使用`iconify()`指令最小化，注意最小化和隐藏不是同一个意思。
+```python
+Window.iconify()
+```
+
+## 隐藏
+隐藏和最小化不是同一个意思，最小化是可以在任务栏恢复显示的，而隐藏会直接在任务栏消失。
+```python
+Window.withdraw()
+```
+
+## 恢复显示
+如果你使用了`withdraw()`或是`iconify()`进行隐藏，都是可以通过`deiconify()`进行恢复。
+```python
+Window.deiconify()
+```
+

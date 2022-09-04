@@ -1,0 +1,10 @@
+# Icon_QuickFish
+为一个名叫`快速鱼`的图标。
+```{eval-rst}
+.. autoclass:: tkdev4.devicon.Icon_QuickFish
+    :members:
+    :noindex:
+
+```
+
+

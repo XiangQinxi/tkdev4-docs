@@ -1,0 +1,71 @@
+# 如何嵌套子窗口
+对于嵌套子窗口，也就是将一个窗口塞入另一个容器内，对于这个功能，最适合设计器。使用win32，将子窗口的窗柄获取出来，然后再将他的父组件设为容器即可。
+
+![](https://tkdev-docs.netlify.app/_files/mdi.png)
+
+---
+
+## 使用win32
+我们需要使用SetParent设置父组件，
+```python
+from win32gui import GetParent, SetParent
+from tkinter import Tk, Toplevel
+
+hWnd = 0
+
+def Get_hWnd():
+    global hWnd
+    Window_hWnd = GetParent(Root.winfo_id())
+    Toplevl_hWnd = GetParent(Toplevel.winfo_id())
+    SetParent(Toplevl_hWnd, Window_hWnd)
+    
+Root = Tk()
+Toplevel = Toplevel(Root)
+Toplevel.after(1, Get_hWnd)
+Root.mainloop()
+```
+这里如果找不到可以设置一下子窗口的位置
+```python
+from win32gui import GetParent, SetParent
+from tkinter import Tk, Toplevel
+
+hWnd = 0
+
+def Get_hWnd():
+    global hWnd
+    Window_hWnd = GetParent(Root.winfo_id())
+    Toplevl_hWnd = GetParent(Toplevel.winfo_id())
+    SetParent(Toplevl_hWnd, Window_hWnd)
+    
+Root = Tk()
+Toplevel = Toplevel(Root)
+Toplevel.geometry("+0+0")
+Toplevel.after(1, Get_hWnd)
+Root.mainloop()
+```
+但是我们发现，窗口会闪烁一下消失，我们需要在消失前置顶窗口。
+```python
+from win32gui import GetParent, SetParent
+from tkinter import Tk, Toplevel
+
+hWnd = 0
+
+def Get_hWnd():
+    global hWnd
+    Window_hWnd = GetParent(Root.winfo_id())
+    Toplevl_hWnd = GetParent(Toplevel.winfo_id())
+    SetParent(Toplevl_hWnd, Window_hWnd)
+
+def Show():
+    Root.attributes("-topmost", True)
+    Root.after(10, lambda: Root.attributes("-topmost", False))
+
+Root = Tk()
+Root.after(1, Show)
+Toplevel = Toplevel(Root)
+Toplevel.geometry("+0+0")
+Toplevel.after(1, Get_hWnd)
+Root.mainloop()
+```
+这样子窗口就做好了。
+

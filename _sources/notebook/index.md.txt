@@ -1,0 +1,38 @@
+# 笔记本
+这篇文章将教你如何从0到1制作笔记本。
+
+```{eval-rst}
+.. toctree::
+   :maxdepth: 2
+   :hidden:
+   
+   part1
+   part2 
+   part3
+   part4
+```
+
+
+:::{card} 第一步
+:link: https://tkdev-docs.netlify.app/notebook/part1.html
+
+构建代码环境
+:::
+
+:::{card} 第二步
+:link: https://tkdev-docs.netlify.app/notebook/part2.html
+
+选择好代码编辑器
+:::
+
+:::{card} 第三步
+:link: https://tkdev-docs.netlify.app/notebook/part3.html
+
+构思如何制作笔记本
+:::
+
+:::{card} 第四步
+:link: https://tkdev-docs.netlify.app/notebook/part4.html
+
+开始编程，制作笔记本
+:::

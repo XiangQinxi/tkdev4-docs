@@ -1,0 +1,26 @@
+# 联系我们
+
+:::{card} QQ
+:link: tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=1379773753&website=www.oicqzone.com
+
+1379773753
+:::
+
+:::{card} 邮箱 1
+:link: mailto:XiangQinxi@outlook.com
+
+[XiangQinxi@outlook.com](mailto:XiangQinxi@outlook.com)
+:::
+
+:::{card} 邮箱 2
+:link: mailto:1379773753@qq.com
+
+[1379773753@qq.com](mailto:1379773753@qq.com)
+:::
+
+:::{card} 编程猫
+:link: https://shequ.codemao.cn/user/2724132
+
+邦邦BON
+:::
+

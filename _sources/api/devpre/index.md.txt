@@ -1,0 +1,4 @@
+# DevPre
+处于测试阶段的预览组件
+
+可以使用`from tkdev.devpre import xxx`进行导入这个库中的图标。

@@ -1,0 +1,17 @@
+# DevIcon
+为tkinterDev的附加库，我们将图标文件放在临时文件内，然后返回图标文件的位置。
+
+可以使用`from tkdev.devicon import xxx`进行导入这个库中的图标。
+
+```{eval-rst}
+.. toctree::
+   :maxdepth: 1
+   
+   Icon_Empty
+   Icon_Folder
+   Icon_Hourglass
+   Icon_Info
+   Icon_QuickFish
+   Icon_TkinterDev
+```
+

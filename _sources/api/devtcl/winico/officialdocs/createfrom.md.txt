@@ -1,0 +1,9 @@
+# winico createfrom
+
+:::{card} 参数
+`filename`
+:::
+
+从`.ico`文件加载图标。如果成功，此命令将返回一个标识符，该标识符应用于通过其他 `winico` 命令访问此资源。
+图标文件通常包含多个图标，用于屏幕的不同颜色深度，并且可能包含不同的大小（例如 16x16 和 32x32 图标）若要获取有关已加载内容的信息，
+请参阅[info](https://tkdev-docs.netlify.app/api/winico/officialdocs/info.html#winico-info)子命令。

@@ -1,0 +1,7 @@
+# DevTooltip
+```{eval-rst}
+.. autoclass:: tkdev4.DevTooltip
+    :members:
+    :noindex:
+
+```

@@ -1,0 +1,41 @@
+# 关于此项目
+做这个项目的初衷是希望能够将tkinter也能变成一个十分好用GUI库，通过各种研究做出来。
+我们也希望更多人的加入，这个项目经过了一年多的发展，实现许多高级的功能，让作品也能像PyQt那样有MDI功能，自定义窗口等等功能。
+
+---
+
+```{eval-rst}
+.. toctree::
+   :maxdepth: 2
+   :hidden:
+   
+   contactus
+   projectstructure
+   developer
+   license
+```
+
+:::{card} 联系作者
+:link: https://tkdev-docs.netlify.app/about/contactus.html
+
+将你不了解的地方和BUG告诉作者吧😆
+
+:::
+
+:::{card} 项目结构
+:link: https://tkdev-docs.netlify.app/about/projectstructure.html
+
+快速了解各个包的功能与作用🐋
+:::
+
+:::{card} 开发者
+:link: https://tkdev-docs.netlify.app/about/developer.html
+
+记录为这个库做贡献的开发者，也期待你的加入🧑‍💻
+:::
+
+:::{card} 许可证
+:link: https://tkdev-docs.netlify.app/about/license.html
+
+此项目的许可证，采用MIT许可证🧩
+:::

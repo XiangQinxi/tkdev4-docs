@@ -1,0 +1,13 @@
+# DevCore
+为tkinterDev的附加库，含其余的参数、组件。
+
+可以使用`from tkdev.devcore import xxx`进行导入这个库中的图标。
+
+```{eval-rst}
+.. toctree::
+   :maxdepth: 1
+   
+   DevAction
+   DevSysTray
+```
+

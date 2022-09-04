@@ -1,0 +1,10 @@
+# download_winico
+
+```{eval-rst}
+.. autoclass:: tkdev4.devtcl.download_winico
+    :members:
+    :noindex:
+
+```
+
+

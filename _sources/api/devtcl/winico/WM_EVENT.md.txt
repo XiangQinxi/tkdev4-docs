@@ -1,0 +1,10 @@
+# WM_EVENT
+
+```{eval-rst}
+.. autoclass:: tkdev4.devtcl.WM_EVENT
+    :members:
+    :noindex:
+
+```
+
+

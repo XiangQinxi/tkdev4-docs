@@ -1,0 +1,11 @@
+# Icon_Empty
+一个空图标。
+
+```{eval-rst}
+.. autoclass:: tkdev4.devicon.Icon_Empty
+    :members:
+    :noindex:
+
+```
+
+

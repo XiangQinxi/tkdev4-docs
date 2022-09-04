@@ -1,0 +1,7 @@
+# DevStatusBar
+```{eval-rst}
+.. autoclass:: tkdev4.DevStatusBar
+    :members:
+    :noindex:
+
+```

@@ -1,0 +1,56 @@
+# 如何制作托盘图标
+托盘图标，是位于任务栏右侧的那些任务，以图标图标形式出现，点击后一般可以显示被隐藏的窗口。
+`tkinter`没有制作这种托盘图标，但是有个叫做`winico`的扩展库出现，可以制作托盘图标。
+
+![](https://tkdev-docs.netlify.app/_files/winico.png)
+
+---
+
+## 安装winico
+我们可以使用我开发的`tkinterDev`，它可以快速地安装`winico`。
+```python
+from tkdev4 import download_winico
+download_winico()
+```
+我将`winico`地压缩包发到个人的网站，并改了文件名，叫做`Winico64`，因为原来的压缩包有空格，没找到解决办法，就重新改了个名。
+他会安装压缩包到临时文件内，然后解压到`tcl`文件夹里面，这样就可以使用`tk.call`调用`winico`了。
+
+## 使用winico
+我们使用前，需要创建个`Tk`窗口才行，然后再创建托盘图标，使用`show()`显示图标
+```python
+from tkinter import Tk
+from tkdev4 import DevTray
+
+Root = Tk()
+Tray = DevTray(Root)
+Tray.show()
+Root.mainloop()
+```
+运行后你就能看到托盘图标了。
+
+## 扩展
+我们还可以对系统托盘的菜单进行改动
+```python
+from tkinter import Tk, Menu
+from tkdev4 import DevTray
+from tkdev4.devtcl import WM_RBUTTONDOWN, ICON_MODE_LOAD, ICON_APPLICATION
+
+Root = Tk()
+
+
+def popup(event, icon, x, y):
+    if event == WM_RBUTTONDOWN:
+        menu = Menu(tearoff=False)
+        menu.add_command(label="控制台发送“你好”", command=lambda: print("你好"))
+        menu.add_separator()
+        menu.add_command(label="退出应用程序", command=Root.quit)
+        menu.tk_popup(x, y)
+
+
+Tray = DevTray(Root, menu_func=popup, icon=ICON_APPLICATION, icon_mode=ICON_MODE_LOAD)
+Tray.show()
+Root.mainloop()
+```
+
+
+

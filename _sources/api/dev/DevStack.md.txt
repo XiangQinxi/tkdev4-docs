@@ -1,0 +1,8 @@
+# DevStack
+用于切换页面
+```{eval-rst}
+.. autoclass:: tkdev4.DevStack
+    :members:
+    :noindex:
+
+```

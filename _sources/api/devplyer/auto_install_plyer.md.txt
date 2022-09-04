@@ -1,0 +1,10 @@
+# auto_install_plyer
+是否自动下载plyer库
+```{eval-rst}
+.. autoclass:: tkdev4.devplyer.auto_install_plyer
+    :members:
+    :noindex:
+
+```
+
+

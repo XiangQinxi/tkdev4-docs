@@ -1,0 +1,284 @@
+# 第四步 开始编程
+我们先创建一个窗口，并定义标题，选好图标
+```python
+from tkdev4 import DevWindow, Icon_TkinterDev
+
+
+class Application(DevWindow):
+    def __init__(self):
+        super().__init__()
+      
+        self.title("笔记本")
+        self.iconbitmap(Icon_TkinterDev)
+
+
+if __name__ == '__main__':
+    Root = Application()
+    Root.mainloop()
+```
+然后创建文本框。
+```python
+from tkdev4 import DevWindow, Icon_TkinterDev
+from tkinter import Text
+
+
+class Application(DevWindow):
+    def __init__(self):
+        super().__init__()
+        self.title("笔记本")
+        self.iconbitmap(Icon_TkinterDev)
+        
+        self.editor = Text(self, border=0)
+        self.editor.pack(fill="both", expand="yes")
+
+
+if __name__ == '__main__':
+    Root = Application()
+    Root.mainloop()
+```
+这样，一个最最精简的编辑器就做好了（可能还算不上），接下来就来制作菜单。我们需要`文件菜单`、`编辑菜单`。我们先做好文件菜单，
+文件菜单有4个选项，`新建`、`打开`、`保存`、`退出`。
+```python
+from tkdev4 import DevWindow, Icon_TkinterDev
+from tkinter import Text, Menu
+
+
+class Application(DevWindow):
+    def __init__(self):
+        super().__init__()
+        self.title("笔记本")
+        self.iconbitmap(Icon_TkinterDev)
+
+        self.menubar = Menu(self, tearoff=False)
+        self.menufile = Menu(self.menubar, tearoff=False)
+        self.menufile.add_command(label="新建")
+        self.menufile.add_command(label="打开")
+        self.menufile.add_command(label="保存")
+        self.menufile.add_separator()
+        self.menufile.add_command(label="退出")
+        self.menubar.add_cascade(label="文件", menu=self.menufile)
+        self.configure(menu=self.menubar)
+
+        self.editor = Text(self, border=0)
+        self.editor.pack(fill="both", expand="yes")
+
+
+if __name__ == '__main__':
+    Root = Application()
+    Root.mainloop()
+```
+现在要设置每个选项的命令command。新建就是去除所有的文本。打开就是调用filedialog打开文件，之后读取到文本框上。
+保存是调用filedialog选择保存地址和文件，然后写到文件上。
+```python
+from tkdev4 import DevWindow, Icon_TkinterDev
+from tkinter import Text, Menu, END
+from tkinter.filedialog import askopenfilename, asksaveasfilename
+
+
+class Application(DevWindow):
+    def __init__(self):
+        super().__init__()
+        self.title("笔记本")
+        self.iconbitmap(Icon_TkinterDev)
+
+        self.menubar = Menu(self, tearoff=False)
+        
+        self.menufile = Menu(self.menubar, tearoff=False)
+        self.menufile.add_command(label="新建", command=self.new)
+        self.menufile.add_command(label="打开", command=self.open)
+        self.menufile.add_command(label="保存", command=self.save)
+        self.menufile.add_separator()
+        self.menufile.add_command(label="退出")
+        
+        self.menubar.add_cascade(label="文件", menu=self.menufile)
+        self.configure(menu=self.menubar)
+
+        self.editor = Text(self, border=0)
+        self.editor.pack(fill="both", expand="yes", padx=5, pady=5, ipadx=5 ,ipady=5)
+
+    def new(self):
+        self.editor.delete("1.0", END)
+
+    def open(self):
+        self.new()
+        file = askopenfilename(defaultextension=".txt", filetypes=[("文本文件", ".txt"), ("Python文件", ".py"), ("所有文件", "*")])
+        if file:
+            text = open(file, "r+", encoding="gbk")
+            edit = text.read()
+            self.editor.insert(END, edit)
+            text.close()
+
+    def save(self):
+        file = asksaveasfilename(defaultextension=".txt", filetypes=[("文本文件", ".txt"), ("Python文件", ".py"), ("所有文件", "*")])
+        if file:
+            text = open(file, "w+", encoding="gbk")
+            text.write(self.editor.get("1.0", END))
+            text.close()
+
+
+if __name__ == '__main__':
+    Root = Application()
+    Root.mainloop()
+```
+之后我们再来制作`编辑`菜单，有`撤销`、`重做`
+```python
+from tkdev4 import DevWindow, Icon_TkinterDev
+from tkinter import Text, Menu, END, TclError
+from tkinter.filedialog import askopenfilename, asksaveasfilename
+
+
+class Application(DevWindow):
+    def __init__(self):
+        super().__init__()
+        self.title("笔记本")
+        self.iconbitmap(Icon_TkinterDev)
+
+        self.menubar = Menu(self, tearoff=False)
+
+        self.menufile = Menu(self.menubar, tearoff=False)
+        self.menufile.add_command(label="新建", command=self.new)
+        self.menufile.add_command(label="打开", command=self.open)
+        self.menufile.add_command(label="保存", command=self.save)
+        self.menufile.add_separator()
+        self.menufile.add_command(label="退出")
+
+        self.menuedit = Menu(self.menubar, tearoff=False)
+        self.menuedit.add_command(label="撤销", command=self.undo)
+        self.menuedit.add_command(label="重做", command=self.redo)
+
+        self.menubar.add_cascade(label="文件", menu=self.menufile)
+        self.menubar.add_cascade(label="编辑", menu=self.menuedit)
+        self.configure(menu=self.menubar)
+
+        self.editor = Text(self, border=0, undo=True)
+        self.editor.pack(fill="both", expand="yes", padx=5, pady=5, ipadx=5 ,ipady=5)
+
+        self.bind("<Control-z>", lambda event: self.undo())
+        self.bind("<Control-Z>", lambda event: self.undo())
+        self.bind("<Control-Shift-z>", lambda event: self.redo())
+        self.bind("<Control-Shift-Z>", lambda event: self.redo())
+
+    def new(self):
+        self.editor.delete("1.0", END)
+
+    def open(self):
+        self.new()
+        file = askopenfilename(defaultextension=".txt", filetypes=[("文本文件", ".txt"), ("Python文件", ".py"), ("所有文件", "*")])
+        if file:
+            text = open(file, "r+", encoding="gbk")
+            edit = text.read()
+            self.editor.insert(END, edit)
+            text.close()
+
+    def save(self):
+        file = asksaveasfilename(defaultextension=".txt", filetypes=[("文本文件", ".txt"), ("Python文件", ".py"), ("所有文件", "*")])
+        if file:
+            text = open(file, "w+", encoding="gbk")
+            text.write(self.editor.get("1.0", END))
+            text.close()
+
+    def undo(self):
+        try:
+            self.editor.edit_undo()
+        except TclError:
+            pass
+
+    def redo(self):
+        try:
+            self.editor.edit_redo()
+        except TclError:
+            pass
+
+
+if __name__ == '__main__':
+    Root = Application()
+    Root.mainloop()
+```
+这样一个基本的编辑器就诞生了。
+
+## 扩展
+我们有了一个可以保存、打开文件的笔记本，但是我们可以加个状态栏，显示信息。
+```python
+from tkdev4 import DevWindow, Icon_TkinterDev, DevStatusBar
+from tkinter import Text, Menu, END, TclError
+from tkinter.filedialog import askopenfilename, asksaveasfilename
+
+
+class Application(DevWindow):
+    def __init__(self):
+        super().__init__()
+        self.title("笔记本")
+        self.iconbitmap(Icon_TkinterDev)
+
+        self.Statusbar = DevStatusBar(self, default_text="行:0 列:0", sizegrip=False, background="#f5f5f5")
+        self.statusbar(self.Statusbar)
+
+        self.menubar = Menu(self, tearoff=False)
+
+        self.menufile = Menu(self.menubar, tearoff=False)
+        self.menufile.add_command(label="新建", command=self.new)
+        self.menufile.add_command(label="打开", command=self.open)
+        self.menufile.add_command(label="保存", command=self.save)
+        self.menufile.add_separator()
+        self.menufile.add_command(label="退出")
+
+        self.menuedit = Menu(self.menubar, tearoff=False)
+        self.menuedit.add_command(label="撤销", command=self.undo)
+        self.menuedit.add_command(label="重做", command=self.redo)
+
+        self.menubar.add_cascade(label="文件", menu=self.menufile)
+        self.menubar.add_cascade(label="编辑", menu=self.menuedit)
+        self.configure(menu=self.menubar)
+
+        self.editor = Text(self, border=0, undo=True)
+        self.editor.pack(fill="both", expand="yes", padx=5, pady=5, ipadx=5 ,ipady=5)
+
+        self.bind("<Control-z>", lambda event: self.undo())
+        self.bind("<Control-Z>", lambda event: self.undo())
+        self.bind("<Control-Shift-z>", lambda event: self.redo())
+        self.bind("<Control-Shift-Z>", lambda event: self.redo())
+        self.bind("<KeyPress>", lambda event: self.uptext(event))
+        self.bind("<Button>", lambda event: self.uptext(event))
+
+    def uptext(self, event):
+        num = self.editor.index("insert")
+        if event.keycode == 13:  # 按下回车行加1
+            num = float(num) + 1
+        self.Statusbar.status.configure(text="行:{} 列:{}".format(*str(num).split('.')))
+
+    def new(self):
+        self.editor.delete("1.0", END)
+
+    def open(self):
+        self.new()
+        file = askopenfilename(defaultextension=".txt", filetypes=[("文本文件", ".txt"), ("Python文件", ".py"), ("所有文件", "*")])
+        if file:
+            text = open(file, "r+", encoding="gbk")
+            edit = text.read()
+            self.editor.insert(END, edit)
+            text.close()
+
+    def save(self):
+        file = asksaveasfilename(defaultextension=".txt", filetypes=[("文本文件", ".txt"), ("Python文件", ".py"), ("所有文件", "*")])
+        if file:
+            text = open(file, "w+", encoding="gbk")
+            text.write(self.editor.get("1.0", END))
+            text.close()
+
+    def undo(self):
+        try:
+            self.editor.edit_undo()
+        except TclError:
+            pass
+
+    def redo(self):
+        try:
+            self.editor.edit_redo()
+        except TclError:
+            pass
+
+
+if __name__ == '__main__':
+    Root = Application()
+    Root.mainloop()
+```

@@ -1,0 +1,10 @@
+# set_auto_install_plyer
+设置是否自动安装plyer库
+
+```{eval-rst}
+.. autoclass:: tkdev4.set_auto_install_plyer
+    :members:
+    :noindex:
+
+```
+

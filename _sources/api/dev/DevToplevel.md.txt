@@ -1,0 +1,7 @@
+# DevToplevel
+```{eval-rst}
+.. autoclass:: tkdev4.DevToplevel
+    :members:
+    :noindex:
+
+```

@@ -1,0 +1,96 @@
+# Winico 官方文档
+## 名字
+:::{card} winico
+Windows Icon extension for Tcl/Tk
+:::
+
+## 概要
+:::{card} 软件包需要 
+Tcl 8.4
+:::
+
+:::{card} 软件包需要 
+winico 0.6
+:::
+
+```{eval-rst}
+.. toctree::
+   :maxdepth: 1
+   
+   createfrom
+   load
+   info
+   setwindow
+   delete
+   taskbar
+   callback
+```
+
+## 描述
+`Winico`是一个扩展，它为`Windows`下的`Tk`应用程序提供了对图标的增强处理。这包括从图标文件和可执行资源加载图标，还提供任务栏图标管理。
+
+## 例子
+```
+% winico createfrom icons/smiley.ico
+ico#5
+% winico info ico#5
+{-pos 0 -width 32 -height 32 -geometry 32x32 -bpp 4 -hicon 0x670081 -ptr 0xf99884} {-pos 1 -width 16 -height 16 -geometry 16x16 -bpp 4 -hicon 0xad01b4 -ptr 0xf99884}
+```
+```
+set contextmenu [menu .popup -tearoff 0]
+...
+winico taskbar add ico#1 -pos 1 -text "big tcp server"  -callback "mytclproc $contextmenu %m %i %X %Y"
+...
+proc mytclproc {contextmenu msg ico x y } {
+  if { $msg=="WM_RBUTTONUP" } {
+    $contextmenu post $x $y
+  }
+}
+```
+
+## 示例
+```python
+import tkinter
+import os.path
+import sys
+
+
+def event(evt, id, icon, x, y):
+    if evt == "WM_RBUTTONDOWN":
+        menu = tkinter.Menu(tearoff=False)
+        menu.add_command(label="Quit", command=root.quit)
+        menu.tk_popup(x, y)
+
+
+root = tkinter.Tk()
+root.tk.call('package', 'require', 'Winico')  # 导入Winico
+icon = root.tk.call('winico', 'createfrom', os.path.split(sys.executable)[0] + "\\tcl\\pkg\\tkchat.ico")  # 设置图标
+root.tk.call('winico', 'taskbar', "add", icon,
+             '-callback', (root.register(event), '%m', '%i', root, '%x', '%y'),  # 设置托盘事件
+             '-pos', 0,
+             '-text', "Winico")  # 设置托盘提示文本
+root.mainloop()
+```
+
+## 作者
+
+:::{card} Leo Schubert
+利奥·舒伯特
+:::
+
+:::{card} Brueckner&Jarosch Ing.-GmbH
+布鲁克纳&雅罗斯奇·宁。
+:::
+
+:::{card} Modifications by Pat Thoyts.
+帕特·索伊斯的修改。
+:::
+
+
+## 关键字
+`icons` `system tray` `taskbar`
+
+## 版权
+:::{card} 版权所有 © 1997-1998
+Brueckner&Jarosch
+:::

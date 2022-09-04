@@ -1,0 +1,10 @@
+# DevHeaderBar
+```{eval-rst}
+.. autoclass:: tkdev4.DevHeaderBar
+    :members:
+    :noindex:
+
+```
+
+
+

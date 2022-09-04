@@ -1,0 +1,23 @@
+# winico setwindow 
+
+:::{card} 参数
+`windowid id` `big|small` `pos`
+:::
+
+为 `windowid` 给出的顶级窗口设置图标，该图标可以是窗口的 `Tk` 路径名，也可以是有效的 `Windows HWND` 值（用于非 `Tk` 窗口）。
+
+注意：必须映射窗口。如果不是，则可能会失败或崩溃。
+
+## 参数
+
+### big|small
+如果`big|small`为`big`（默认），任务栏图标和标题图标设置在 `Win95/WinNT` 下，如果它是`small`，则仅设置小标题图标（通过`WM_SETICON`）。
+
+在`Win32`下`big|small`被忽略（通过 `SetClassLong（）`完成设置）
+（要设置单个 `toplevel`，需要每个 `toplevel` 不同的 `Windows 类名`，`TkToplevel0`，`TkToplevel1` 等等）
+
+### pos
+如果设置了`pos`，则具有该`-pos`编号的图标将用于设置顶级图标，否则`winico`将选择第一个 32x32 16 色图标（这可以改进）
+
+此选项仅对使用 [createfrom](https://tkdev-docs.netlify.app/api/winico/officialdocs/createfrom.html#winico-createfrom) 子命令创建的图标有影响 （修复我：检查此项）
+

@@ -1,0 +1,21 @@
+# WinIco
+tcl扩展组件，可以制作系统托盘图标。
+
+可以使用`from tkdev.winico import xxx`进行导入这个库中的图标。
+
+```{note} 注意
+从3.2.1版本开始，winico库改名为devtcl。
+```
+
+```{eval-rst}
+.. toctree::
+   :maxdepth: 1
+   
+   install
+   officialdocs/index
+   download_winico
+   WM_EVENT
+   DevTray
+```
+
+
